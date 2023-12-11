@@ -1,0 +1,10 @@
+commit c6eca050051fdf5e9e8b4561748552d1297a94f3
+tree 5d8151ecf1dc23a2c59dde30528c10430159540c
+parent eae241697cff23bc184f3c250abc36b9add4dc87
+author jacksonsieben <jackson_sieben@live.com> 2023-12-01 17:39:53 -0300
+committer jacksonsieben <jackson_sieben@live.com> 2023-12-01 17:39:53 -0300
+
+    feat: add authorizehttps
+
+
+:100644 100644 2919d2df86888af50efffe8cf2ea4abc1eef6895 71fae06d222e12c2e9709328fca064f7c087e021 M	src/main/java/br/edu/utfpr/turismoapi/turismoapi/security/WebSecurityConfig.java

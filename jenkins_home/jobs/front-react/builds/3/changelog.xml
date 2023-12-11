@@ -1,0 +1,10 @@
+commit 5d860e51059db2c484c382701361c01d293da5f8
+tree c2b6b9122dce1b64bc1e7a2680fbb0689e7a2a5f
+parent 2ab529d2e2c83073f57c980f7c98f787dd4ed827
+author jacksonsieben <jackson_sieben@live.com> 2023-12-01 17:08:09 -0300
+committer jacksonsieben <jackson_sieben@live.com> 2023-12-01 17:08:09 -0300
+
+    feat: add Dockerfile
+
+
+:100644 100644 7d15137887162d8ea4e2d9f764ff5c228a13c970 ec914d8de52a177be0f8c096b039af505cee8c0d M	Dockerfile

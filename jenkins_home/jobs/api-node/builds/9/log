@@ -1,0 +1,96 @@
+Started by user [8mha:////4DavKVZ8oK+1cXb3mNdEkkYJ3EkPxqbFUCppaUI0W30QAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/api-node
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/api-node/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/thiagodalsanto/turismo-api2.git # timeout=10
+Fetching upstream changes from https://github.com/thiagodalsanto/turismo-api2.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- https://github.com/thiagodalsanto/turismo-api2.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 0e35daafcd534f076dfd144d462ecfebd89ffcb3 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 0e35daafcd534f076dfd144d462ecfebd89ffcb3 # timeout=10
+Commit message: "feat: prefix route 3"
+ > git rev-list --no-walk 0861e4fe01c85cef9bf2ba604c4d7eddbb64ed74 # timeout=10
+[api-node] $ /bin/sh -xe /tmp/jenkins12418489700663850514.sh
++ ls
+Dockerfile
+app.js
+bin
+models
+package-lock.json
+package.json
+routes
+test
++ docker rm api-node -f
+api-node
++ docker rmi api-node -f
+Untagged: api-node:latest
+Deleted: sha256:433da6054fc7079870a4b51462c4d02fb801c586809539c9e4fbb4f68e02f0bc
+Deleted: sha256:6c75f521d8eb9da4adccdc0fff557b2b63f6669461d7f410fedc3e22e6a26244
+Deleted: sha256:f20aa9508cc365b33650d0a43634b14250e4c43e0a1e5b27d121ca406e80c665
+Deleted: sha256:4a91c7a5194a441a1e272a77c34dc1ed2a0376dd66f6f4946e63377ecde97787
+Deleted: sha256:6bda10b50edd38b1296635b94031b3267f1b88194c32e1c62339493191f24b6d
+Deleted: sha256:91810edb9f13b47c8bf8e6b03e260550ff6b5d50ce4e32b0747556551d52aae5
+Deleted: sha256:d3f2465d2f89a0bbd1b5ec46a83ad7fd326b6967e8752f17c027d9b1bd7dde91
+Deleted: sha256:03f872308ac1e3dd41171b3f6e7913433d6c497694858d28f55778e5c6432da5
+Deleted: sha256:29391e6c41faa2059b2e1a73b40527bd16e1b592c6fc4972e369a1244ff81149
++ docker build -t api-node .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  269.3kB
+Step 1/7 : FROM node:18
+ ---> 219cd50149ac
+Step 2/7 : WORKDIR /app
+ ---> Running in c40af460d5f1
+Removing intermediate container c40af460d5f1
+ ---> db20fe4d46e1
+Step 3/7 : COPY . .
+ ---> 41f250996f3e
+Step 4/7 : ENV PATH /app/node_modeules/.bin:$PATH
+ ---> Running in aad4c70e7f76
+Removing intermediate container aad4c70e7f76
+ ---> 015baf87ecff
+Step 5/7 : RUN npm install
+ ---> Running in ded9632194fc
+[91mnpm WARN deprecated mkdirp@0.3.5: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+[0m[91mnpm WARN deprecated jade@0.31.2: Jade has been renamed to pug, please install the latest version of pug instead of jade
+[0m[91mnpm WARN deprecated transformers@2.0.1: Deprecated, use jstransformer
+[0m
+added 172 packages, and audited 173 packages in 3s
+
+13 packages are looking for funding
+  run `npm fund` for details
+
+3 vulnerabilities (2 high, 1 critical)
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+[91mnpm notice 
+npm notice New major version of npm available! 9.8.1 -> 10.2.4
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.2.4>
+[0m[91mnpm notice Run `npm install -g npm@10.2.4` to update!
+npm notice 
+[0mRemoving intermediate container ded9632194fc
+ ---> 641149feed5e
+Step 6/7 : EXPOSE 3000
+ ---> Running in 242c16524cae
+Removing intermediate container 242c16524cae
+ ---> 71eb4fa375a8
+Step 7/7 : CMD npm start
+ ---> Running in 91dc9c4eb1da
+Removing intermediate container 91dc9c4eb1da
+ ---> c8082ec7b83b
+Successfully built c8082ec7b83b
+Successfully tagged api-node:latest
++ docker run -d --name api-node -p 3000:3000 --network=turismo_turismo_network --restart=always api-node
+a1ad0c940df567f987967614c9ce28c174cf59a178457746b562eb961a3a6598
+Finished: SUCCESS

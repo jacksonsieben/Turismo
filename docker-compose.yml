@@ -1,0 +1,101 @@
+version: "3"
+
+services:
+  # api-java:
+  #   build:
+  #     context: ./turismo-api
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8080:8080" # Ajuste a porta conforme necessário
+  #   environment:
+  #     - SPRING_DATASOURCE_URL=jdbc:postgresql://db-postgres:5432/db_turismo # Use o nome do serviço do banco de dados PostgreSQL
+  #   depends_on:
+  #     - db-postgres
+
+  # api-node:
+  #   build:
+  #     context: ./turismo-api2
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3000:3000" # Ajuste a porta conforme necessário
+
+  # front-react:
+  #   build:
+  #     context: ./turismo-front
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8081:80"
+  portainer:
+    image: portainer/portainer-ce
+    container_name: portainer
+    ports:
+      - "9000:9000"
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    networks:
+      - turismo_network
+
+  api-gateway:
+    image: nginx
+    container_name: gateway
+    ports:
+      - "80:80" # Ajuste a porta conforme necessário
+    depends_on:
+      - jenkins
+    volumes:
+      - ./gateway-api/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - turismo_network
+
+  db-postgres:
+    image: postgres
+    container_name: db-postgres
+    environment:
+      POSTGRES_DB: db_turismo
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432" # Ajuste a porta conforme necessário
+    volumes:
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - turismo_network
+
+  jenkins:
+    image: jenkins/jenkins
+    restart: always
+    privileged: true
+    user: root
+    tty: true
+    stdin_open: true
+    ports:
+      - 8090:8080
+      #- 50000:50000
+    container_name: "jenkins"
+    environment:
+      - JENKINS_OPTS="--prefix=/jenkins"
+      # - JENKINS_ADMIN_ID=admin
+      # - JENKINS_ADMIN_PASSWORD=12345678
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - ./jenkins_home/jobs:/var/jenkins_home/jobs
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+    networks:
+      - turismo_network
+
+volumes:
+  # jenkins_home/jobs:
+  jenkins_home:
+  portainer_data:
+
+networks:
+  turismo_network:
+    driver: bridge
+
+  # db-mongo:
+  #   image: mongo
+  #   ports:
+  #     - "27017:27017" # Ajuste a porta conforme necessário

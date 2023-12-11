@@ -1,0 +1,95 @@
+Started by user [8mha:////4DavKVZ8oK+1cXb3mNdEkkYJ3EkPxqbFUCppaUI0W30QAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/api-java
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/api-java/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/jacksonsieben/turismo-api.git # timeout=10
+Fetching upstream changes from https://github.com/jacksonsieben/turismo-api.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- https://github.com/jacksonsieben/turismo-api.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/Atividade5^{commit} # timeout=10
+Checking out Revision 1094efab6fdfabd9993a15785a5c4ce410a7d5a5 (refs/remotes/origin/Atividade5)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1094efab6fdfabd9993a15785a5c4ce410a7d5a5 # timeout=10
+Commit message: "context path"
+ > git rev-list --no-walk 1094efab6fdfabd9993a15785a5c4ce410a7d5a5 # timeout=10
+[api-java] $ /bin/sh -xe /tmp/jenkins11005269558341376329.sh
++ ls
+Dockerfile
+api-docs.json
+build.gradle
+gradle
+gradlew
+gradlew.bat
+restclient
+settings.gradle
+src
++ docker rm api-java -f
+Error response from daemon: No such container: api-java
++ docker rmi api-java -f
+Error response from daemon: No such image: api-java:latest
++ docker build -t api-java .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon    446kB
+Step 1/8 : FROM eclipse-temurin:17-jdk-alpine
+17-jdk-alpine: Pulling from library/eclipse-temurin
+c926b61bad3b: Pulling fs layer
+e5820a814e8c: Pulling fs layer
+ec533064323b: Pulling fs layer
+bb67c9837c6a: Pulling fs layer
+64f3195d8bdd: Pulling fs layer
+bb67c9837c6a: Waiting
+64f3195d8bdd: Waiting
+c926b61bad3b: Download complete
+c926b61bad3b: Pull complete
+e5820a814e8c: Verifying Checksum
+e5820a814e8c: Download complete
+bb67c9837c6a: Verifying Checksum
+bb67c9837c6a: Download complete
+e5820a814e8c: Pull complete
+64f3195d8bdd: Verifying Checksum
+64f3195d8bdd: Download complete
+ec533064323b: Verifying Checksum
+ec533064323b: Download complete
+ec533064323b: Pull complete
+bb67c9837c6a: Pull complete
+64f3195d8bdd: Pull complete
+Digest: sha256:31fd8cc4cef24cc3b25e5b9f9f86a09f4c27815220c4a8a2bb9b6bf869ff0726
+Status: Downloaded newer image for eclipse-temurin:17-jdk-alpine
+ ---> 60b102f57f99
+Step 2/8 : WORKDIR /app
+ ---> Running in c0b5fc64bd79
+Removing intermediate container c0b5fc64bd79
+ ---> 5f36c59edc15
+Step 3/8 : COPY . .
+ ---> f920424b65f2
+Step 4/8 : ENV SPRING_DATASOURCE_URL=jdbc:postgresql://db-postgres:5432/db_turismo
+ ---> Running in 91949fa93a2d
+Removing intermediate container 91949fa93a2d
+ ---> 7ed7215ec3e4
+Step 5/8 : RUN chmod +x gradlew
+ ---> Running in 693d10de75ef
+Removing intermediate container 693d10de75ef
+ ---> 96fba62361e3
+Step 6/8 : RUN ./gradlew build -x test
+ ---> Running in f7520f87068d
+Downloading https://services.gradle.org/distributions/gradle-8.2.1-bin.zip
+............10%............20%............30%.............40%............50%............60%............70%.............80%............90%............100%
+
+Welcome to Gradle 8.2.1!
+
+Here are the highlights of this release:
+ - Kotlin DSL: new reference documentation, assignment syntax by default
+ - Kotlin DSL is now the default with Gradle init
+ - Improved suggestions to resolve errors in console output
+ - Reduced sync memory consumption
+
+For more details see https://docs.gradle.org/8.2.1/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)

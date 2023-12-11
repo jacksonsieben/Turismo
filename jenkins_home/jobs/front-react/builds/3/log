@@ -1,0 +1,252 @@
+Started by user [8mha:////4DavKVZ8oK+1cXb3mNdEkkYJ3EkPxqbFUCppaUI0W30QAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/front-react
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/front-react/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/thiagodalsanto/turismo-front.git # timeout=10
+Fetching upstream changes from https://github.com/thiagodalsanto/turismo-front.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- https://github.com/thiagodalsanto/turismo-front.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 5d860e51059db2c484c382701361c01d293da5f8 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 5d860e51059db2c484c382701361c01d293da5f8 # timeout=10
+Commit message: "feat: add Dockerfile"
+ > git rev-list --no-walk 2ab529d2e2c83073f57c980f7c98f787dd4ed827 # timeout=10
+[front-react] $ /bin/sh -xe /tmp/jenkins5412648682255651673.sh
++ ls
+Dockerfile
+README.md
+package-lock.json
+package.json
+postcss.config.js
+public
+src
+tailwind.config.js
++ docker rm front-react -f
+front-react
++ docker rmi front-react -f
+Untagged: front-react:latest
+Deleted: sha256:0351062ea4a80c8e0f54449a45ffaefbab69cd7f1b4b1b9e0092d18fa24b96ce
+Deleted: sha256:a83cb1f86ed5bf229ca0becc1f2bf67bcff11fc59a4ad668551fd8858ad5d48f
+Deleted: sha256:9c0d84736c903f87e9784d6939de83214198902ee3eabae71a4ba36295243e00
+Deleted: sha256:99f62f746b64007d2dd887967ce236529dc629e6c424ae8cfc07a5556f3d5dc6
+Deleted: sha256:20e62e6bfa44fe39598e8476981de25318ce36a280fb942be402831afcb25463
+Deleted: sha256:d3357f67115ac7ab306b88517ae7876eca63523d804f3c3082cc4f402a426033
+Deleted: sha256:96e0f879af6bed2cad0c92245461d320f0d652f82b6a58d1dda53cdded6eb71a
+Deleted: sha256:d3bba4a25a664eab60690522f2893f6ff100032a3e96f06b9589f5a78217df8c
+Deleted: sha256:be869e09a9e3e894d1c5d93946b5df39068f124010246a9aa69a14ddb4b5f130
+Deleted: sha256:26a2512af0a525ca9d12e1cc6a923972f71110c7c7fc8fceb4af709f00d663ca
+Deleted: sha256:19791685f8f753655e1efb6f54195bae76239ce412d765453e28b9e7ba453b56
+Deleted: sha256:7744d6b6ed6e3c2bc011df949e43c6c568547f1139a05bcea042eca5bb346182
++ docker build -t front-react .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  2.364MB
+Step 1/8 : FROM node:14
+ ---> 1d12470fa662
+Step 2/8 : WORKDIR /app
+ ---> Running in e8d596e8def1
+Removing intermediate container e8d596e8def1
+ ---> 0817bf1a8a0f
+Step 3/8 : COPY package*.json ./
+ ---> 991c8865d0cb
+Step 4/8 : RUN npm install
+ ---> Running in ddbb5f924a7e
+[91mnpm[0m[91m WARN read-shrinkwrap This version of npm is compatible with lockfileVersion@1, but package-lock.json was generated for lockfileVersion@3. I'll try to do my best with it!
+[0m[91mnpm WARN deprecated @babel/plugin-proposal-class-properties@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
+[0m[91mnpm WARN deprecated @babel/plugin-proposal-numeric-separator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-numeric-separator instead.
+[0m[91mnpm WARN deprecated @babel/plugin-proposal-optional-chaining@7.21.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
+[0m[91mnpm WARN deprecated @babel/plugin-proposal-nullish-coalescing-operator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-nullish-coalescing-operator instead.
+[0m[91mnpm WARN deprecated @babel/plugin-proposal-private-methods@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-methods instead.
+[0m[91mnpm WARN deprecated abab@2.0.6: Use your platform's native atob() and btoa() methods instead
+[0m[91mnpm WARN deprecated svgo@1.3.2: This SVGO version is no longer supported. Upgrade to v2.x.x.
+[0m[91mnpm WARN deprecated rollup-plugin-terser@7.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-terser
+[0m[91mnpm WARN deprecated workbox-cacheable-response@6.6.0: workbox-background-sync@6.6.0
+[0m[91mnpm[0m[91m WARN deprecated coffee-script@1.12.7: CoffeeScript on NPM has moved to "coffeescript" (no hyphen)
+[0m[91mnpm WARN deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+[0m[91mnpm WARN deprecated gulp-header@1.8.12: Removed event-stream from gulp-header
+[0m[91mnpm WARN deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+[0m[91mnpm WARN deprecated domexception@2.0.1: Use your platform's native DOMException instead
+[0m[91mnpm WARN deprecated w3c-hr-time@1.0.2: Use your platform's native performance.now() and performance.timeOrigin.
+[0m
+> sharp@0.32.6 install /app/node_modules/sharp
+> (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+
+sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.14.5/libvips-8.14.5-linux-x64.tar.br
+sharp: Integrity check passed for linux-x64
+
+> core-js@3.33.3 postinstall /app/node_modules/core-js
+> node -e "try{require('./postinstall')}catch(e){}"
+
+[96mThank you for using core-js ([94m https://github.com/zloirock/core-js [96m) for polyfilling JavaScript standard library![0m
+
+[96mThe project needs your help! Please consider supporting core-js:[0m
+[96m>[94m https://opencollective.com/core-js [0m
+[96m>[94m https://patreon.com/zloirock [0m
+[96m>[94m https://boosty.to/zloirock [0m
+[96m>[94m bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz [0m
+
+[96mI highly recommend reading this:[94m https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md [96m[0m
+
+
+> core-js-pure@3.33.3 postinstall /app/node_modules/core-js-pure
+> node -e "try{require('./postinstall')}catch(e){}"
+
+[96mThank you for using core-js ([94m https://github.com/zloirock/core-js [96m) for polyfilling JavaScript standard library![0m
+
+[96mThe project needs your help! Please consider supporting core-js:[0m
+[96m>[94m https://opencollective.com/core-js [0m
+[96m>[94m https://patreon.com/zloirock [0m
+[96m>[94m https://boosty.to/zloirock [0m
+[96m>[94m bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz [0m
+
+[96mI highly recommend reading this:[94m https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md [96m[0m
+
+
+> esbuild@0.18.20 postinstall /app/node_modules/esbuild
+> node install.js
+
+
+> protobufjs@7.2.5 postinstall /app/node_modules/protobufjs
+> node scripts/postinstall
+
+
+> contentlayer@0.3.4 postinstall /app/node_modules/contentlayer
+> node ./bin/cli.cjs postinstall || echo 'No Contentlayer build found.'
+
+[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@~2.3.2 (node_modules/chokidar/node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.3.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/android-arm@0.18.20 (node_modules/esbuild/node_modules/@esbuild/android-arm):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/android-arm@0.18.20: wanted {"os":"android","arch":"arm"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/darwin-arm64@0.18.20 (node_modules/esbuild/node_modules/@esbuild/darwin-arm64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/darwin-arm64@0.18.20: wanted {"os":"darwin","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/android-arm64@0.18.20 (node_modules/esbuild/node_modules/@esbuild/android-arm64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/android-arm64@0.18.20: wanted {"os":"android","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/freebsd-x64@0.18.20 (node_modules/esbuild/node_modules/@esbuild/freebsd-x64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/freebsd-x64@0.18.20: wanted {"os":"freebsd","arch":"x64"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/linux-arm@0.18.20 (node_modules/esbuild/node_modules/@esbuild/linux-arm):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/linux-arm@0.18.20: wanted {"os":"linux","arch":"arm"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/linux-ia32@0.18.20 (node_modules/esbuild/node_modules/@esbuild/linux-ia32):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/linux-ia32@0.18.20: wanted {"os":"linux","arch":"ia32"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/linux-arm64@0.18.20 (node_modules/esbuild/node_modules/@esbuild/linux-arm64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/linux-arm64@0.18.20: wanted {"os":"linux","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/freebsd-arm64@0.18.20 (node_modules/esbuild/node_modules/@esbuild/freebsd-arm64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/freebsd-arm64@0.18.20: wanted {"os":"freebsd","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/darwin-x64@0.18.20 (node_modules/esbuild/node_modules/@esbuild/darwin-x64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/darwin-x64@0.18.20: wanted {"os":"darwin","arch":"x64"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/android-x64@0.18.20 (node_modules/esbuild/node_modules/@esbuild/android-x64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/android-x64@0.18.20: wanted {"os":"android","arch":"x64"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/linux-loong64@0.18.20 (node_modules/esbuild/node_modules/@esbuild/linux-loong64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/linux-loong64@0.18.20: wanted {"os":"linux","arch":"loong64"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/linux-mips64el@0.18.20 (node_modules/esbuild/node_modules/@esbuild/linux-mips64el):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/linux-mips64el@0.18.20: wanted {"os":"linux","arch":"mips64el"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/linux-s390x@0.18.20 (node_modules/esbuild/node_modules/@esbuild/linux-s390x):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/linux-s390x@0.18.20: wanted {"os":"linux","arch":"s390x"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/sunos-x64@0.18.20 (node_modules/esbuild/node_modules/@esbuild/sunos-x64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/sunos-x64@0.18.20: wanted {"os":"sunos","arch":"x64"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/linux-ppc64@0.18.20 (node_modules/esbuild/node_modules/@esbuild/linux-ppc64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/linux-ppc64@0.18.20: wanted {"os":"linux","arch":"ppc64"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/openbsd-x64@0.18.20 (node_modules/esbuild/node_modules/@esbuild/openbsd-x64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/openbsd-x64@0.18.20: wanted {"os":"openbsd","arch":"x64"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/linux-riscv64@0.18.20 (node_modules/esbuild/node_modules/@esbuild/linux-riscv64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/linux-riscv64@0.18.20: wanted {"os":"linux","arch":"riscv64"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/netbsd-x64@0.18.20 (node_modules/esbuild/node_modules/@esbuild/netbsd-x64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/netbsd-x64@0.18.20: wanted {"os":"netbsd","arch":"x64"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/win32-arm64@0.18.20 (node_modules/esbuild/node_modules/@esbuild/win32-arm64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/win32-arm64@0.18.20: wanted {"os":"win32","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/win32-ia32@0.18.20 (node_modules/esbuild/node_modules/@esbuild/win32-ia32):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/win32-ia32@0.18.20: wanted {"os":"win32","arch":"ia32"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/win32-x64@0.18.20 (node_modules/esbuild/node_modules/@esbuild/win32-x64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/win32-x64@0.18.20: wanted {"os":"win32","arch":"x64"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN next-contentlayer@0.3.4 requires a peer of next@^12 || ^13 but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm WARN @opentelemetry/core@1.13.0 requires a peer of @opentelemetry/api@>=1.0.0 <1.5.0 but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm WARN @opentelemetry/sdk-trace-base@1.13.0 requires a peer of @opentelemetry/api@>=1.0.0 <1.5.0 but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm WARN @opentelemetry/resources@1.13.0 requires a peer of @opentelemetry/api@>=1.0.0 <1.5.0 but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm WARN @opentelemetry/core@1.13.0 requires a peer of @opentelemetry/api@>=1.0.0 <1.5.0 but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm WARN @opentelemetry/otlp-transformer@0.39.1 requires a peer of @opentelemetry/api@>=1.3.0 <1.5.0 but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm WARN @opentelemetry/resources@1.13.0 requires a peer of @opentelemetry/api@>=1.0.0 <1.5.0 but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm WARN @opentelemetry/core@1.13.0 requires a peer of @opentelemetry/api@>=1.0.0 <1.5.0 but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm WARN @opentelemetry/sdk-trace-base@1.13.0 requires a peer of @opentelemetry/api@>=1.0.0 <1.5.0 but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm WARN @opentelemetry/core@1.13.0 requires a peer of @opentelemetry/api@>=1.0.0 <1.5.0 but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm WARN @opentelemetry/sdk-logs@0.39.1 requires a peer of @opentelemetry/api@>=1.4.0 <1.5.0 but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm WARN @opentelemetry/core@1.13.0 requires a peer of @opentelemetry/api@>=1.0.0 <1.5.0 but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm WARN @opentelemetry/resources@1.13.0 requires a peer of @opentelemetry/api@>=1.0.0 <1.5.0 but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm WARN @opentelemetry/sdk-metrics@1.13.0 requires a peer of @opentelemetry/api@>=1.3.0 <1.5.0 but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm WARN @opentelemetry/core@1.13.0 requires a peer of @opentelemetry/api@>=1.0.0 <1.5.0 but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm WARN @opentelemetry/resources@1.13.0 requires a peer of @opentelemetry/api@>=1.0.0 <1.5.0 but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm WARN tsutils@3.21.0 requires a peer of typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm WARN fork-ts-checker-webpack-plugin@6.5.3 requires a peer of typescript@>= 2.7 but none is installed. You must install peer dependencies yourself.
+[0m[91mnpm WARN @apideck/better-ajv-errors@0.3.6 requires a peer of ajv@>=8 but none is installed. You must install peer dependencies yourself.
+[0m[91m
+[0madded 1966 packages from 1157 contributors and audited 1991 packages in 76.651s
+
+405 packages are looking for funding
+  run `npm fund` for details
+
+found 2 vulnerabilities (1 moderate, 1 high)
+  run `npm audit fix` to fix them, or `npm audit` for details
+Removing intermediate container ddbb5f924a7e
+ ---> 41cb20906e33
+Step 5/8 : COPY . .
+ ---> e326e930e35f
+Step 6/8 : RUN npm run build
+ ---> Running in d22ed5575e1d
+
+> turismo-front@0.1.0 build /app
+> react-scripts build
+
+Creating an optimized production build...
+[91m[0;33mOne of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+
+babel-preset-react-app is part of the create-react-app project, [1mwhich
+is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.[0m
+  
+[0mCompiled successfully.
+
+File sizes after gzip:
+
+  61.76 kB  build/static/js/main.e9e48ae4.js
+  15.9 kB   build/static/css/main.577f0e6c.css
+  1.78 kB   build/static/js/787.84b7a7b2.chunk.js
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  npm install -g serve
+  serve -s build
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+
+Removing intermediate container d22ed5575e1d
+ ---> 0fb63319112d
+Step 7/8 : EXPOSE 3000
+ ---> Running in 95528c64913f
+Removing intermediate container 95528c64913f
+ ---> 1cd27e28fc39
+Step 8/8 : CMD ["npm", "start"]
+ ---> Running in 8008cc368b35
+Removing intermediate container 8008cc368b35
+ ---> 106daefc0cfd
+Successfully built 106daefc0cfd
+Successfully tagged front-react:latest
++ docker run -d --name front-react -p 3001:3000 --restart=always --network=turismo_turismo_network front-react
+495eecd3b0eaee2728441be823046f360bb9f070c72c8e933b18bd1005902dff
+Finished: SUCCESS

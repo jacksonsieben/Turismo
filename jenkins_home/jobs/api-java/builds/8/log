@@ -1,0 +1,109 @@
+Started by user [8mha:////4DavKVZ8oK+1cXb3mNdEkkYJ3EkPxqbFUCppaUI0W30QAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/api-java
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/api-java/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/jacksonsieben/turismo-api.git # timeout=10
+Fetching upstream changes from https://github.com/jacksonsieben/turismo-api.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- https://github.com/jacksonsieben/turismo-api.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/Atividade5^{commit} # timeout=10
+Checking out Revision c6eca050051fdf5e9e8b4561748552d1297a94f3 (refs/remotes/origin/Atividade5)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f c6eca050051fdf5e9e8b4561748552d1297a94f3 # timeout=10
+Commit message: "feat: add authorizehttps"
+ > git rev-list --no-walk eae241697cff23bc184f3c250abc36b9add4dc87 # timeout=10
+[api-java] $ /bin/sh -xe /tmp/jenkins6142765351080372258.sh
++ ls
+Dockerfile
+api-docs.json
+build.gradle
+gradle
+gradlew
+gradlew.bat
+restclient
+settings.gradle
+src
++ docker rm api-java -f
+api-java
++ docker rmi api-java -f
+Untagged: api-java:latest
+Deleted: sha256:df287b233a8d24877459bb0df9490db9106a50a0b5b55c969ba9403277af6805
+Deleted: sha256:d3e02d33bfea9970b6e07a13355d1176d872fa03eeb920ea94da429cf4db9a35
+Deleted: sha256:6f08003d75a4e2615206baa365eb82c2ffb0021c513193f4be776247dbff5104
+Deleted: sha256:15dac431bcc713286bfc03c342a47c46785ade374c8d581ca8c90c57c39209ed
+Deleted: sha256:04d48b5dfe2aa637dfcf5905fb6a647be068ab231e6a9fe583d77f5e9a929235
+Deleted: sha256:ce294da61b2c7150895d38972815adf893f0892609f321fa4e4eefce30f281a0
+Deleted: sha256:8152ebd98485a6c7908f9d523fbff79d471bcd4105b807eb59b904b2628c5347
+Deleted: sha256:2422dc4676ad6678c18a1c7ced72533fce9a54c3b907d51d8b4db223927598c3
+Deleted: sha256:bc0fd1269a5abfb42ce0ccb51d548069b42fd44f13bc3438a6ea7a639c5c4339
+Deleted: sha256:f7a77d255dbd8d2f3f6fcf1ba13ec4956c9f3d7c77365e44c2c0c6b401bdc2c8
+Deleted: sha256:ba57f4beac97f84fc8589d3460105b58fe208c7635bd3c1e45b53a9c168fef32
++ docker build -t api-java .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  484.4kB
+Step 1/8 : FROM eclipse-temurin:17-jdk-alpine
+ ---> 60b102f57f99
+Step 2/8 : WORKDIR /app
+ ---> Running in 88ae3bbfe635
+Removing intermediate container 88ae3bbfe635
+ ---> 6413688df38c
+Step 3/8 : COPY . .
+ ---> 8bb731cea919
+Step 4/8 : ENV SPRING_DATASOURCE_URL=jdbc:postgresql://db-postgres:5432/db_turismo
+ ---> Running in 426dab8b1a6c
+Removing intermediate container 426dab8b1a6c
+ ---> b914360a9b3a
+Step 5/8 : RUN chmod +x gradlew
+ ---> Running in 12b889b0095b
+Removing intermediate container 12b889b0095b
+ ---> 27da3facb6b6
+Step 6/8 : RUN ./gradlew build -x test
+ ---> Running in a0cd50aa9c9c
+Downloading https://services.gradle.org/distributions/gradle-8.2.1-bin.zip
+............10%............20%............30%.............40%............50%............60%............70%.............80%............90%............100%
+
+Welcome to Gradle 8.2.1!
+
+Here are the highlights of this release:
+ - Kotlin DSL: new reference documentation, assignment syntax by default
+ - Kotlin DSL is now the default with Gradle init
+ - Improved suggestions to resolve errors in console output
+ - Reduced sync memory consumption
+
+For more details see https://docs.gradle.org/8.2.1/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+> Task :compileJava
+> Task :processResources
+> Task :classes
+> Task :resolveMainClassName
+> Task :bootJar
+> Task :jar
+> Task :assemble
+> Task :check
+> Task :build
+
+BUILD SUCCESSFUL in 37s
+5 actionable tasks: 5 executed
+Removing intermediate container a0cd50aa9c9c
+ ---> df77c236a315
+Step 7/8 : EXPOSE 8080
+ ---> Running in 3e017dc83d9f
+Removing intermediate container 3e017dc83d9f
+ ---> bb63fec7207e
+Step 8/8 : ENTRYPOINT ["java","-jar","build/libs/turismo-api-0.0.1.jar"]
+ ---> Running in ea9cf9728753
+Removing intermediate container ea9cf9728753
+ ---> 9dc3a2471f98
+Successfully built 9dc3a2471f98
+Successfully tagged api-java:latest
++ docker run -d --name api-java -p 8080:8080 -e SPRING_DATASOURCE_URL=jdbc:postgresql://db-postgres:5432/db_turismo --restart=always --network=turismo_turismo_network api-java
+2c4e5ed79c234128492b7f190a2d6b40df593fb1f8d6d3bc78c06cc0e7e657c3
+Finished: SUCCESS

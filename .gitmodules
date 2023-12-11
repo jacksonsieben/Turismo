@@ -1,0 +1,9 @@
+[submodule "turismo-api"]
+	path = turismo-api
+	url = https://github.com/jacksonsieben/turismo-api
+[submodule "turismo-api2"]
+	path = turismo-api2
+	url = https://github.com/thiagodalsanto/turismo-api2
+[submodule "turismo-front"]
+	path = turismo-front
+	url = https://github.com/thiagodalsanto/turismo-front
