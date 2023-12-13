@@ -1,4 +1,4 @@
-```sql
+
 -- DROP SCHEMA public;
 
 --CREATE SCHEMA public AUTHORIZATION pg_database_owner;
@@ -106,4 +106,4 @@ CREATE TABLE public.booking_tour (
 	CONSTRAINT fk1emh7w9019tke1hnlrjvh5m10 FOREIGN KEY (passeio_id) REFERENCES public.tb_booking(id),
 	CONSTRAINT fknt8wocubjfck9pinvbajfx62i FOREIGN KEY (reserva_id) REFERENCES public.tb_tour(id)
 );
-```
+
