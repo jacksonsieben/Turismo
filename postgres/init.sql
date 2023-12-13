@@ -1,8 +1,10 @@
+```sql
+-- DROP SCHEMA public;
+
+--CREATE SCHEMA public AUTHORIZATION pg_database_owner;
 -- public.tb_person definition
 
 -- Drop table
-
--- CREATE DATABASE db_turismo;
 
 -- DROP TABLE public.tb_person;
 
@@ -27,16 +29,14 @@ CREATE TABLE public.tb_person (
 
 -- DROP TABLE public.tb_booking;
 
-CREATE table public.tb_booking (
+CREATE TABLE public.tb_booking (
+	data_final date NULL,
+	data_inicial date NULL,
 	created_at timestamp(6) NULL,
-	data_final timestamp(6) NULL,
-	data_inicial timestamp(6) NULL,
 	updated_at timestamp(6) NULL,
 	agencia_id uuid NOT NULL,
-	cliente_id uuid NOT NULL,
 	id uuid NOT NULL,
 	CONSTRAINT tb_booking_pkey PRIMARY KEY (id),
-	CONSTRAINT fk7k9ra8bf6k67tdsclt5mkts7y FOREIGN KEY (cliente_id) REFERENCES public.tb_person(id),
 	CONSTRAINT fkie7jk7imgbpwjkscsslpr69bt FOREIGN KEY (agencia_id) REFERENCES public.tb_person(id)
 );
 
@@ -66,17 +66,31 @@ CREATE TABLE public.tb_payment (
 
 -- DROP TABLE public.tb_tour;
 
-CREATE table public.tb_tour (
+CREATE TABLE public.tb_tour (
 	preco float8 NOT NULL,
 	created_at timestamp(6) NULL,
 	updated_at timestamp(6) NULL,
 	agencia_id uuid NOT NULL,
 	id uuid NOT NULL,
 	destino varchar(255) NULL,
-	itinerario varchar(255) NULL,
 	imagem varchar(255) NULL,
+	itinerario varchar(255) NULL,
 	CONSTRAINT tb_tour_pkey PRIMARY KEY (id),
 	CONSTRAINT fk8ky81da5jctdkm0kvr5sugvj5 FOREIGN KEY (agencia_id) REFERENCES public.tb_person(id)
+);
+
+
+-- public.booking_client definition
+
+-- Drop table
+
+-- DROP TABLE public.booking_client;
+
+CREATE TABLE public.booking_client (
+	booking_id uuid NOT NULL,
+	cliente_id uuid NOT NULL,
+	CONSTRAINT fk282s7u3uihyvm76ayxn4586s2 FOREIGN KEY (cliente_id) REFERENCES public.tb_person(id),
+	CONSTRAINT fkjpqd8yi87i9axcgkmsi1nvmih FOREIGN KEY (booking_id) REFERENCES public.tb_booking(id)
 );
 
 
@@ -86,10 +100,10 @@ CREATE table public.tb_tour (
 
 -- DROP TABLE public.booking_tour;
 
-CREATE table public.booking_tour (
+CREATE TABLE public.booking_tour (
 	passeio_id uuid NOT NULL,
 	reserva_id uuid NOT NULL,
 	CONSTRAINT fk1emh7w9019tke1hnlrjvh5m10 FOREIGN KEY (passeio_id) REFERENCES public.tb_booking(id),
 	CONSTRAINT fknt8wocubjfck9pinvbajfx62i FOREIGN KEY (reserva_id) REFERENCES public.tb_tour(id)
 );
-
+```
